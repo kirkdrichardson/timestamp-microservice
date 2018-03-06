@@ -1,17 +1,24 @@
 {
-  "name": "fcc-learn-npm-package-json",
-  "dependencies": {
-    "express": "^4.14.0"
-  },
+  "name": "timestamp-microservice",
+  "version": "1.0.0",
+  "description": "### example usage",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
+  "dependencies": {
+    "express": "^4.16.2"
   },
-  "engines": {
-    "node": "4.4.5"
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://idontknow/todo.git"
-  }
+    "url": "git+https://github.com/kirkdrichardson/timestamp-microservice.git"
+  },
+  "author": "Kirk D Richardson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kirkdrichardson/timestamp-microservice/issues"
+  },
+  "homepage": "https://github.com/kirkdrichardson/timestamp-microservice#readme"
 }
