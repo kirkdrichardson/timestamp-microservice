@@ -1,8 +1,5 @@
  const express = require('express');
-
  const app = express();
-
- isANumber = (dateString) => !(isNaN(parseInt(dateString)));
 
  const MONTH_HASH = { 0: 'January', 1: 'February', 2: 'March', 3: 'April', 4: 'May', 5: 'June', 6: 'July', 7: 'August', 8: 'September', 9: 'October', 10: 'November', 11: 'December' };
 
@@ -12,18 +9,18 @@
 
  app.get('/:time', function(req, res) {
     const dateParam = decodeURI(req.params.time);
-    const isUnix = isANumber(dateParam);
     const dateObject = new Date(parseInt(dateParam) || dateParam);
 
     const isValid = Boolean(!(isNaN(dateObject.getTime())));
 
+    let unix = null;
+    let naturalTime = null;
+
     if  (isValid) {
-      const unix = dateObject.getTime();
-      const naturalTime = `${MONTH_HASH[dateObject.getMonth()]} ${dateObject.getDay() + 1}, ${dateObject.getFullYear()}`;
-       res.send({ unix, naturalTime }).end();
-    } else {
-      res.send({ error: 'invalid date' });
+      unix = dateObject.getTime();
+      naturalTime = `${MONTH_HASH[dateObject.getMonth()]} ${dateObject.getDay() + 1}, ${dateObject.getFullYear()}`;
     }
+    res.send({ unix, naturalTime });
  });
 
  app.listen(3000);
